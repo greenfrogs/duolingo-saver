@@ -67,7 +67,7 @@ for (let i = 0; i < process.env.LESSONS; i++) {
       learningLanguage,
       skillId: xpGains.find(xpGain => xpGain.skillId).skillId,
       smartTipsVersion: 2,
-      type: 'SPEAKING_PRACTICE',
+      type: 'LISTENING_PRACTICE',
     }),
     headers,
     method: 'POST',
