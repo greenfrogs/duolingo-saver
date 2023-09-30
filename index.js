@@ -1,3 +1,9 @@
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
 const headers = {
   'Content-Type': 'application/json',
   Authorization: `Bearer ${process.env.DUOLINGO_JWT}`,
@@ -72,6 +78,7 @@ for (let i = 0; i < process.env.LESSONS; i++) {
     headers,
     method: 'POST',
   }).then(response => response.json())
+  await sleep(60000)
 
   const response = await fetch(
     `https://www.duolingo.com/2017-06-30/sessions/${session.id}`,
@@ -92,4 +99,5 @@ for (let i = 0; i < process.env.LESSONS; i++) {
   ).then(response => response.json())
 
   console.log({ xp: response.xpGain })
+  await sleep(2000)
 }
